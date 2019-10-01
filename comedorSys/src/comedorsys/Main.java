@@ -144,7 +144,6 @@ public class Main extends javax.swing.JFrame {
         //add(panelListarVehiculos);
         panelhistoricos.setVisible(true);
         panelmenus.setVisible(false);
-        
         revalidate();
         repaint();
     }//GEN-LAST:event_btnHistoricosActionPerformed
