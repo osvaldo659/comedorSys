@@ -44,16 +44,13 @@ public class PanelMenu extends javax.swing.JPanel {
      */
     public PanelMenu() {
         initComponents();
-        
-        
+         
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
 
-        }
-        
-        
+        }   
     }
 
     /**
@@ -174,10 +171,8 @@ public class PanelMenu extends javax.swing.JPanel {
             String sql = "INSERT INTO vehiculos (placa, propietario,tipovehiculo,horaentrada,estado) VALUES ('" + tfPlaca.getText() + "','" + tfPropietario.getText() + "','" + clasevehiculo + "','" + fechaHora + "','Disponible')";
             stat.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "El vehiculo se registro exitosamente");
-
         } catch (SQLException ex) {
-            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);}
 
         String dest = "C:/reportes/sample.pdf";
         try {
