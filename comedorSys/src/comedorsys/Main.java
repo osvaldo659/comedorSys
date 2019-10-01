@@ -10,25 +10,23 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    
+   
     PanelMenu panelmenus;
     PanelHistoricos panelhistoricos;
     
     public Main() {
-        //System.out.println("Hello World!"); // Display the string.
+        System.out.println("Hello World!"); // Display the string.
         
         initComponents();
         setSize(800,450);
-        
-        
         panelmenus = new PanelMenu();
         panelmenus.setBounds(300,0,473,400);
         add(panelmenus);
         
-        //panelListarVehiculos = new PanelListarVehiculos();
-        //panelhistoricos.setBounds(350,0,1116,400);
-        //add(panelhistoricos);
-        //panelhistoricos.setVisible(false);
+        panelhistoricos = new PanelHistoricos();
+        panelhistoricos.setBounds(350,0,1116,400);
+        add(panelhistoricos);
+        panelhistoricos.setVisible(false);
     }
 
     /**
@@ -58,8 +56,18 @@ public class Main extends javax.swing.JFrame {
         imagenPortada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comedorsys/graficos.png"))); // NOI18N
 
         btnMenu.setLabel("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
 
         btnHistoricos.setLabel("Historicos");
+        btnHistoricos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistoricosActionPerformed(evt);
+            }
+        });
 
         btnSalir.setLabel("salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -124,20 +132,32 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void btnHistoricosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricosActionPerformed
+        // TODO add your handling code here:
+        setSize(1116,450);
+        //add(panelListarVehiculos);
+        panelhistoricos.setVisible(true);
+        panelmenus.setVisible(false);
+        
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_btnHistoricosActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
         setSize(800,450);
         panelhistoricos.setVisible(false);
         panelmenus.setVisible(true);
-        
         revalidate();
         repaint();
-    }
+    }//GEN-LAST:event_btnMenuActionPerformed
+
         
     /**
      * @param args the command line arguments

@@ -116,11 +116,17 @@
           <Properties>
             <Property name="label" type="java.lang.String" value="Menu"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuActionPerformed"/>
+          </Events>
         </Component>
         <Component class="java.awt.Button" name="btnHistoricos">
           <Properties>
             <Property name="label" type="java.lang.String" value="Historicos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHistoricosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="java.awt.Button" name="btnSalir">
           <Properties>
