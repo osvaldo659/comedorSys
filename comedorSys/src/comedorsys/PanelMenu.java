@@ -35,7 +35,7 @@ import sun.text.normalizer.RangeValueIterator.Element;
 
 /**
  *
- * @author Administrador
+ * @author Ezequias
  */
 public class PanelMenu extends javax.swing.JPanel {
 
