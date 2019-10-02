@@ -31,7 +31,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import sun.text.normalizer.RangeValueIterator.Element;
+//import sun.text.normalizer.RangeValueIterator.Element;
 
 /**
  *
@@ -45,7 +45,7 @@ public class PanelMenu extends javax.swing.JPanel {
     public PanelMenu() {
         initComponents();
          
-        try {
+        try { //valida y verifica que la libreria este instalada
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,6 +71,21 @@ public class PanelMenu extends javax.swing.JPanel {
         button1 = new java.awt.Button();
         jLabel2 = new javax.swing.JLabel();
         tfPlaca = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tfPropietario1 = new javax.swing.JTextField();
+        tfPropietario2 = new javax.swing.JTextField();
+        tfPropietario3 = new javax.swing.JTextField();
+        tfPropietario4 = new javax.swing.JTextField();
+        tfPropietario5 = new javax.swing.JTextField();
+        tfPropietario6 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        tfPropietario7 = new javax.swing.JTextField();
+        tfPropietario8 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        tfPropietario9 = new javax.swing.JTextField();
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 16)); // NOI18N
@@ -96,54 +111,155 @@ public class PanelMenu extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("Comida");
+        jLabel2.setText("Lunes");
 
         tfPlaca.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
+
+        jLabel5.setText("Martes");
+
+        tfPropietario1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+
+        tfPropietario2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+
+        tfPropietario3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+
+        tfPropietario4.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+
+        tfPropietario5.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+
+        tfPropietario6.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+
+        jLabel6.setText("Miercoles");
+
+        jLabel7.setText("Jueves");
+
+        jLabel8.setText("Viernes");
+
+        tfPropietario7.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+
+        tfPropietario8.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+
+        jLabel9.setText("Comida");
+
+        jLabel10.setText("Semana");
+
+        tfPropietario9.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(tfPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(61, 61, 61))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(rbMoto)
-                .addGap(10, 10, 10)
-                .addComponent(rbAuto)
-                .addGap(137, 137, 137))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel8)
+                                            .addGap(10, 10, 10)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(jLabel5)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tfPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel9))
+                                        .addGap(58, 58, 58))
+                                    .addComponent(tfPropietario1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPropietario3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPropietario5, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPropietario7, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfPropietario6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPropietario8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfPropietario4, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tfPropietario2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tfPropietario9, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel3)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(rbMoto))
+                                .addGap(10, 10, 10)
+                                .addComponent(rbAuto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(jLabel10))
+                            .addComponent(tfPropietario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(tfPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(tfPropietario1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfPropietario3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfPropietario5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfPropietario7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tfPropietario9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPropietario2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPropietario4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPropietario6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPropietario8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbAuto)
-                    .addComponent(rbMoto))
-                .addGap(26, 26, 26)
-                .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rbAuto)
+                        .addComponent(rbMoto))
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,6 +268,7 @@ public class PanelMenu extends javax.swing.JPanel {
     
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
 
+        /*
         String clasevehiculo = "";
         if (rbAuto.isSelected()) {
             clasevehiculo = "Automovil";
@@ -159,29 +276,36 @@ public class PanelMenu extends javax.swing.JPanel {
         if (rbMoto.isSelected()) {
             clasevehiculo = "Motocicleta";
         }
+        */ //Estas lineas hacen seleccion segun check seleccionado 
 
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdparqueadero", "root", "");
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Calendar cal = Calendar.getInstance();
-            Date date = cal.getTime();
-            fechaHora = dateFormat.format(date);
-            System.out.print(dateFormat.format(date));
-            Statement stat = conexion.createStatement();
-            String sql = "INSERT INTO vehiculos (placa, propietario,tipovehiculo,horaentrada,estado) VALUES ('" + tfPlaca.getText() + "','" + tfPropietario.getText() + "','" + clasevehiculo + "','" + fechaHora + "','Disponible')";
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcomedor", "root", ""); //direccion,user,pass
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //se coloca a formato de MySQL
+            Calendar cal = Calendar.getInstance(); //Toma fecha actual
+            Date date = cal.getTime(); //Toma la hora
+            fechaHora = dateFormat.format(date); //coloca la fecha en la forma de MySQL
+            System.out.print(dateFormat.format(date)); //Imprime la hora, por las dudas
+            Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
+            //Secuencia SQL para insertar
+            //String sql = "INSERT INTO vehiculos (placa, propietario,tipovehiculo,horaentrada,estado) VALUES ('" + tfPlaca.getText() + "','" + tfPropietario.getText() + "','" + clasevehiculo + "','" + fechaHora + "','Disponible')";
+            String sql = "INSERT INTO vehiculos (placa, propietario,tipovehiculo,horaentrada,estado) VALUES ('" + tfPlaca.getText() + "','" + tfPropietario.getText() + "','" + "','" + fechaHora + "','Disponible')";
             stat.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "El vehiculo se registro exitosamente");
+            JOptionPane.showMessageDialog(null, "El vehiculo se registro exitosamente"); //mensaje en un panel
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);}
 
-        String dest = "C:/reportes/sample.pdf";
+        //DESDE AQUI TRABAJA CON EL TICKET Y SU IMPRESION
+        /*
+        String dest = "C:/reportes/sample.pdf"; //donde cuarda el PDF del reporte (ticket)
         try {
 
-            PdfWriter writer = new PdfWriter(dest);
-            PdfDocument pdfDoc = new PdfDocument(writer);
-            Document document = new Document(pdfDoc, PageSize.A5);
-            pdfDoc.addNewPage();
+            PdfWriter writer = new PdfWriter(dest); //destino
+            PdfDocument pdfDoc = new PdfDocument(writer); //crea el pdf
+            Document document = new Document(pdfDoc, PageSize.A5); //le asigna un tamaño
+            pdfDoc.addNewPage(); //agrega nuevapagina
 
+            
+           //se empieza a diseñar el contenido del texto
             Paragraph para = new Paragraph ("Recibo Parqueadero");
 
             para.setBorder(Border.NO_BORDER);
@@ -196,7 +320,7 @@ public class PanelMenu extends javax.swing.JPanel {
             document.add(para2);
             document.add(para3);
             document.close();
-            System.out.println("PDF Created");
+            System.out.println("PDF Created"); //Imprime que fue creado
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -204,6 +328,7 @@ public class PanelMenu extends javax.swing.JPanel {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        //Una vez creado el PDF. se lo ejecuta y se lo abre
         try {
 
             if ((new File("c:\\reportes/sample.pdf")).exists()) {
@@ -224,6 +349,7 @@ public class PanelMenu extends javax.swing.JPanel {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        */
 
     }//GEN-LAST:event_button1ActionPerformed
   
@@ -231,12 +357,27 @@ public class PanelMenu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton rbAuto;
     private javax.swing.JRadioButton rbMoto;
     private javax.swing.JTextField tfPlaca;
     private javax.swing.JTextField tfPropietario;
+    private javax.swing.JTextField tfPropietario1;
+    private javax.swing.JTextField tfPropietario2;
+    private javax.swing.JTextField tfPropietario3;
+    private javax.swing.JTextField tfPropietario4;
+    private javax.swing.JTextField tfPropietario5;
+    private javax.swing.JTextField tfPropietario6;
+    private javax.swing.JTextField tfPropietario7;
+    private javax.swing.JTextField tfPropietario8;
+    private javax.swing.JTextField tfPropietario9;
     // End of variables declaration//GEN-END:variables
 }

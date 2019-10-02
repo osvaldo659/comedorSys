@@ -18,9 +18,9 @@ public class Main extends javax.swing.JFrame {
         System.out.println("Hello World!"); // Display the string.
         
         initComponents();
-        setSize(800,450);
+        setSize(950,450);
         panelmenus = new PanelMenu();
-        panelmenus.setBounds(300,0,473,400);
+        panelmenus.setBounds(300,0,1116,400);
         add(panelmenus);
         
         panelhistoricos = new PanelHistoricos();
@@ -153,7 +153,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
-        setSize(800,450);
+        setSize(950,450);
         panelhistoricos.setVisible(false);
         panelmenus.setVisible(true);
         revalidate();
