@@ -44,23 +44,23 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="tfPlaca" min="-2" pref="171" max="-2" attributes="0"/>
+                                          <Component id="cLunes" min="-2" pref="171" max="-2" attributes="0"/>
                                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="tfPropietario1" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="tfPropietario3" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="tfPropietario5" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="tfPropietario7" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="cMartes" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="cMiercoles" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="cJueves" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="cViernes" min="-2" pref="211" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfPropietario6" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="tfPropietario8" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="pJueves" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="pViernes" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="tfPropietario4" min="-2" pref="211" max="-2" attributes="0"/>
-                                      <Component id="tfPropietario2" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
-                                      <Component id="tfPropietario9" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                                      <Component id="pMiercoles" min="-2" pref="211" max="-2" attributes="0"/>
+                                      <Component id="pMartes" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                                      <Component id="pLunes" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -76,21 +76,10 @@
                               <Component id="button1" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="17" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="tfPropietario" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="96" max="32767" attributes="0"/>
+              <EmptySpace pref="113" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -98,7 +87,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
@@ -109,43 +98,39 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfPlaca" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="cLunes" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfPropietario1" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="cMartes" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfPropietario3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="cMiercoles" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfPropietario5" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="cJueves" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfPropietario7" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="cViernes" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      <Component id="pLunes" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tfPropietario" min="-2" pref="33" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="tfPropietario9" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="pMartes" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tfPropietario2" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="pMiercoles" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tfPropietario4" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="pJueves" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tfPropietario6" min="-2" pref="33" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tfPropietario8" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="pViernes" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -183,13 +168,6 @@
         <Property name="text" type="java.lang.String" value="Postre"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI Symbol" size="12" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tipo de vehiculo"/>
@@ -224,7 +202,7 @@
         <Property name="text" type="java.lang.String" value="Lunes"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPlaca">
+    <Component class="javax.swing.JTextField" name="cLunes">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="24" style="1"/>
@@ -236,42 +214,45 @@
         <Property name="text" type="java.lang.String" value="Martes"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario1">
+    <Component class="javax.swing.JTextField" name="cMartes">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario2">
+    <Component class="javax.swing.JTextField" name="pMartes">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario3">
+    <Component class="javax.swing.JTextField" name="cMiercoles">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario4">
+    <Component class="javax.swing.JTextField" name="pMiercoles">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario5">
+    <Component class="javax.swing.JTextField" name="cJueves">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cJuevesActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario6">
+    <Component class="javax.swing.JTextField" name="pJueves">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>
@@ -293,14 +274,14 @@
         <Property name="text" type="java.lang.String" value="Viernes"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario7">
+    <Component class="javax.swing.JTextField" name="cViernes">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario8">
+    <Component class="javax.swing.JTextField" name="pViernes">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>
@@ -312,12 +293,7 @@
         <Property name="text" type="java.lang.String" value="Comida"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Semana"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tfPropietario9">
+    <Component class="javax.swing.JTextField" name="pLunes">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Symbol" size="12" style="0"/>

@@ -1,6 +1,7 @@
 
 package comedorsys;
 
+/*
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -8,22 +9,22 @@ import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import static com.itextpdf.kernel.pdf.PdfName.Font;
 import static com.itextpdf.kernel.pdf.PdfName.FontFamily;
-
-
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.border.Border;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
 import com.sun.javafx.geom.Rectangle;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import sun.text.normalizer.RangeValueIterator.Element;
+*/
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,7 +32,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-//import sun.text.normalizer.RangeValueIterator.Element;
+
 
 /**
  *
@@ -64,28 +65,26 @@ public class PanelMenu extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        tfPropietario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         rbMoto = new javax.swing.JRadioButton();
         rbAuto = new javax.swing.JRadioButton();
         button1 = new java.awt.Button();
         jLabel2 = new javax.swing.JLabel();
-        tfPlaca = new javax.swing.JTextField();
+        cLunes = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        tfPropietario1 = new javax.swing.JTextField();
-        tfPropietario2 = new javax.swing.JTextField();
-        tfPropietario3 = new javax.swing.JTextField();
-        tfPropietario4 = new javax.swing.JTextField();
-        tfPropietario5 = new javax.swing.JTextField();
-        tfPropietario6 = new javax.swing.JTextField();
+        cMartes = new javax.swing.JTextField();
+        pMartes = new javax.swing.JTextField();
+        cMiercoles = new javax.swing.JTextField();
+        pMiercoles = new javax.swing.JTextField();
+        cJueves = new javax.swing.JTextField();
+        pJueves = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        tfPropietario7 = new javax.swing.JTextField();
-        tfPropietario8 = new javax.swing.JTextField();
+        cViernes = new javax.swing.JTextField();
+        pViernes = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        tfPropietario9 = new javax.swing.JTextField();
+        pLunes = new javax.swing.JTextField();
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 16)); // NOI18N
@@ -93,8 +92,6 @@ public class PanelMenu extends javax.swing.JPanel {
         jLabel1.setText("+++++++Ingreso Menu Semanal++++++++");
 
         jLabel3.setText("Postre");
-
-        tfPropietario.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
         jLabel4.setText("Tipo de vehiculo");
 
@@ -113,21 +110,26 @@ public class PanelMenu extends javax.swing.JPanel {
 
         jLabel2.setText("Lunes");
 
-        tfPlaca.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
+        cLunes.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
 
         jLabel5.setText("Martes");
 
-        tfPropietario1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        cMartes.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
-        tfPropietario2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        pMartes.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
-        tfPropietario3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        cMiercoles.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
-        tfPropietario4.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        pMiercoles.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
-        tfPropietario5.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        cJueves.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        cJueves.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cJuevesActionPerformed(evt);
+            }
+        });
 
-        tfPropietario6.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        pJueves.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
         jLabel6.setText("Miercoles");
 
@@ -135,15 +137,13 @@ public class PanelMenu extends javax.swing.JPanel {
 
         jLabel8.setText("Viernes");
 
-        tfPropietario7.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        cViernes.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
-        tfPropietario8.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        pViernes.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
         jLabel9.setText("Comida");
 
-        jLabel10.setText("Semana");
-
-        tfPropietario9.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        pLunes.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -172,20 +172,20 @@ public class PanelMenu extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tfPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cLunes, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel9))
                                         .addGap(58, 58, 58))
-                                    .addComponent(tfPropietario1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfPropietario3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfPropietario5, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfPropietario7, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cMartes, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cMiercoles, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cJueves, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cViernes, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfPropietario6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfPropietario8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pJueves, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pViernes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tfPropietario4, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfPropietario2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfPropietario9, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(pMiercoles, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(pMartes, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(pLunes, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel3)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -194,23 +194,15 @@ public class PanelMenu extends javax.swing.JPanel {
                                 .addGap(10, 10, 10)
                                 .addComponent(rbAuto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(jLabel10))
-                            .addComponent(tfPropietario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel1))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(64, 64, 64)
@@ -220,37 +212,33 @@ public class PanelMenu extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(tfPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cLunes, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(tfPropietario1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cMartes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfPropietario3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cMiercoles, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfPropietario5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cJueves, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfPropietario7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cViernes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
+                        .addComponent(pLunes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tfPropietario9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pMartes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPropietario2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pMiercoles, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPropietario4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pJueves, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPropietario6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPropietario8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pViernes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -279,18 +267,20 @@ public class PanelMenu extends javax.swing.JPanel {
         */ //Estas lineas hacen seleccion segun check seleccionado 
 
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcomedor", "root", ""); //direccion,user,pass
+             //ABAJO SE DEBE COLOCAR LA DIRECCION DE LA BASE DE DATO Y EL NOMBRE
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://192.168.2.104/bdcomedor", "root", "comedor");
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //se coloca a formato de MySQL
             Calendar cal = Calendar.getInstance(); //Toma fecha actual
             Date date = cal.getTime(); //Toma la hora
             fechaHora = dateFormat.format(date); //coloca la fecha en la forma de MySQL
             System.out.print(dateFormat.format(date)); //Imprime la hora, por las dudas
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
+            //String sql = "INSERT INTO vehiculos (placa, propietario,tipovehiculo,horaentrada,estado) 
+            //  VALUES ('" + tfPlaca.getText() + "','" + tfPropietario.getText() + "','" + clasevehiculo + "','" + fechaHora + "','Disponible')";
             //Secuencia SQL para insertar
-            //String sql = "INSERT INTO vehiculos (placa, propietario,tipovehiculo,horaentrada,estado) VALUES ('" + tfPlaca.getText() + "','" + tfPropietario.getText() + "','" + clasevehiculo + "','" + fechaHora + "','Disponible')";
-            String sql = "INSERT INTO vehiculos (placa, propietario,tipovehiculo,horaentrada,estado) VALUES ('" + tfPlaca.getText() + "','" + tfPropietario.getText() + "','" + "','" + fechaHora + "','Disponible')";
+            String sql = "INSERT INTO menuscol (fecha,clunes,plunes,cmartes,pmartes,cmiercoles,pmiercoles,cjueves,pjueves,cviernes,pviernes) VALUES ('" + fechaHora + "','" + cLunes.getText() + "','" + pLunes.getText() + "','" + cMartes.getText() + "','" + pMartes.getText() + "','" + cMiercoles.getText() + "','" + pMiercoles.getText() + "','" + cJueves.getText() + "','" + pJueves.getText() + "','" + cViernes.getText() + "','" + pViernes.getText() + "')";
             stat.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "El vehiculo se registro exitosamente"); //mensaje en un panel
+            JOptionPane.showMessageDialog(null, "El regristro fue exitoso"); //mensaje en un panel
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);}
 
@@ -352,12 +342,19 @@ public class PanelMenu extends javax.swing.JPanel {
         */
 
     }//GEN-LAST:event_button1ActionPerformed
-  
 
+    private void cJuevesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cJuevesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cJuevesActionPerformed
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
+    private javax.swing.JTextField cJueves;
+    private javax.swing.JTextField cLunes;
+    private javax.swing.JTextField cMartes;
+    private javax.swing.JTextField cMiercoles;
+    private javax.swing.JTextField cViernes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -366,18 +363,12 @@ public class PanelMenu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField pJueves;
+    private javax.swing.JTextField pLunes;
+    private javax.swing.JTextField pMartes;
+    private javax.swing.JTextField pMiercoles;
+    private javax.swing.JTextField pViernes;
     private javax.swing.JRadioButton rbAuto;
     private javax.swing.JRadioButton rbMoto;
-    private javax.swing.JTextField tfPlaca;
-    private javax.swing.JTextField tfPropietario;
-    private javax.swing.JTextField tfPropietario1;
-    private javax.swing.JTextField tfPropietario2;
-    private javax.swing.JTextField tfPropietario3;
-    private javax.swing.JTextField tfPropietario4;
-    private javax.swing.JTextField tfPropietario5;
-    private javax.swing.JTextField tfPropietario6;
-    private javax.swing.JTextField tfPropietario7;
-    private javax.swing.JTextField tfPropietario8;
-    private javax.swing.JTextField tfPropietario9;
     // End of variables declaration//GEN-END:variables
 }
