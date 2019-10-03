@@ -187,9 +187,9 @@ public class PanelMenu extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel1)
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -216,6 +216,7 @@ public class PanelMenu extends javax.swing.JPanel {
                             .addComponent(cViernes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
                         .addComponent(pLunes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pMartes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,7 +238,8 @@ public class PanelMenu extends javax.swing.JPanel {
 
         try {
              //ABAJO SE DEBE COLOCAR LA DIRECCION DE LA BASE DE DATO Y EL NOMBRE
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://192.168.2.104/bdcomedor", "root", "comedor");
+            //Connection conexion = DriverManager.getConnection("jdbc:mysql://192.168.2.104/bdcomedor", "root", "comedor");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcomedor", "root", "");
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //se coloca a formato de MySQL
             Calendar cal = Calendar.getInstance(); //Toma fecha actual
             Date date = cal.getTime(); //Toma la hora
