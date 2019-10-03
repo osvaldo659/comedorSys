@@ -65,9 +65,6 @@ public class PanelMenu extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        rbMoto = new javax.swing.JRadioButton();
-        rbAuto = new javax.swing.JRadioButton();
         button1 = new java.awt.Button();
         jLabel2 = new javax.swing.JLabel();
         cLunes = new javax.swing.JTextField();
@@ -92,12 +89,6 @@ public class PanelMenu extends javax.swing.JPanel {
         jLabel1.setText("+++++++Ingreso Menu Semanal++++++++");
 
         jLabel3.setText("Postre");
-
-        jLabel4.setText("Tipo de vehiculo");
-
-        rbMoto.setText("Motocicleta");
-
-        rbAuto.setText("Automovil");
 
         button1.setBackground(new java.awt.Color(255, 51, 0));
         button1.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,7 +145,7 @@ public class PanelMenu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -187,13 +178,8 @@ public class PanelMenu extends javax.swing.JPanel {
                                         .addComponent(pMartes, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(pLunes, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel3)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(rbMoto))
-                                .addGap(10, 10, 10)
-                                .addComponent(rbAuto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(99, 99, 99)
                                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel1))
                 .addContainerGap(113, Short.MAX_VALUE))
@@ -239,32 +225,15 @@ public class PanelMenu extends javax.swing.JPanel {
                         .addComponent(pJueves, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pViernes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbAuto)
-                        .addComponent(rbMoto))
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
      String fechaHora = "";
-     //public static final String DEST = "proyectoparqueadero/hello_world.pdf";
     
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-
-        /*
-        String clasevehiculo = "";
-        if (rbAuto.isSelected()) {
-            clasevehiculo = "Automovil";
-        }
-        if (rbMoto.isSelected()) {
-            clasevehiculo = "Motocicleta";
-        }
-        */ //Estas lineas hacen seleccion segun check seleccionado 
 
         try {
              //ABAJO SE DEBE COLOCAR LA DIRECCION DE LA BASE DE DATO Y EL NOMBRE
@@ -275,72 +244,26 @@ public class PanelMenu extends javax.swing.JPanel {
             fechaHora = dateFormat.format(date); //coloca la fecha en la forma de MySQL
             System.out.print(dateFormat.format(date)); //Imprime la hora, por las dudas
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
-            //String sql = "INSERT INTO vehiculos (placa, propietario,tipovehiculo,horaentrada,estado) 
-            //  VALUES ('" + tfPlaca.getText() + "','" + tfPropietario.getText() + "','" + clasevehiculo + "','" + fechaHora + "','Disponible')";
+            
             //Secuencia SQL para insertar
-            String sql = "INSERT INTO menuscol (fecha,clunes,plunes,cmartes,pmartes,cmiercoles,pmiercoles,cjueves,pjueves,cviernes,pviernes) VALUES ('" + fechaHora + "','" + cLunes.getText() + "','" + pLunes.getText() + "','" + cMartes.getText() + "','" + pMartes.getText() + "','" + cMiercoles.getText() + "','" + pMiercoles.getText() + "','" + cJueves.getText() + "','" + pJueves.getText() + "','" + cViernes.getText() + "','" + pViernes.getText() + "')";
+            String sql = "INSERT INTO menuscol "
+                    + "(fecha,"
+                    + "clunes,plunes,"
+                    + "cmartes,pmartes,"
+                    + "cmiercoles,pmiercoles,"
+                    + "cjueves,pjueves,"
+                    + "cviernes,pviernes) "
+                    + "VALUES ('" + fechaHora + "',"
+                    + "'" + cLunes.getText() + "','" + pLunes.getText() + "',"
+                    + "'" + cMartes.getText() + "','" + pMartes.getText() + "',"
+                    + "'" + cMiercoles.getText() + "','" + pMiercoles.getText() + "',"
+                    + "'" + cJueves.getText() + "','" + pJueves.getText() + "',"
+                    + "'" + cViernes.getText() + "','" + pViernes.getText() + "')";
+            
             stat.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "El regristro fue exitoso"); //mensaje en un panel
+            JOptionPane.showMessageDialog(null, "El registro fue exitoso"); //mensaje en un panel
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);}
-
-        //DESDE AQUI TRABAJA CON EL TICKET Y SU IMPRESION
-        /*
-        String dest = "C:/reportes/sample.pdf"; //donde cuarda el PDF del reporte (ticket)
-        try {
-
-            PdfWriter writer = new PdfWriter(dest); //destino
-            PdfDocument pdfDoc = new PdfDocument(writer); //crea el pdf
-            Document document = new Document(pdfDoc, PageSize.A5); //le asigna un tamaño
-            pdfDoc.addNewPage(); //agrega nuevapagina
-
-            
-           //se empieza a diseñar el contenido del texto
-            Paragraph para = new Paragraph ("Recibo Parqueadero");
-
-            para.setBorder(Border.NO_BORDER);
-            para.setBold();
-
-            Paragraph para1 = new Paragraph ("Placa vehiculo: "+tfPlaca.getText());
-            Paragraph para2 = new Paragraph ("Nombre del propietario: "+tfPropietario.getText());
-            Paragraph para3 = new Paragraph ("Hora de ingreso: "+fechaHora);
-
-            document.add(para);
-            document.add(para1);
-            document.add(para2);
-            document.add(para3);
-            document.close();
-            System.out.println("PDF Created"); //Imprime que fue creado
-
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        //Una vez creado el PDF. se lo ejecuta y se lo abre
-        try {
-
-            if ((new File("c:\\reportes/sample.pdf")).exists()) {
-
-                Process p = Runtime
-                .getRuntime()
-                .exec("rundll32 url.dll,FileProtocolHandler c:\\reportes/sample.pdf");
-                p.waitFor();
-
-            } else {
-
-                System.out.println("File is not exists");
-
-            }
-
-            System.out.println("Done");
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        */
-
     }//GEN-LAST:event_button1ActionPerformed
 
     private void cJuevesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cJuevesActionPerformed
@@ -357,7 +280,6 @@ public class PanelMenu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -368,7 +290,5 @@ public class PanelMenu extends javax.swing.JPanel {
     private javax.swing.JTextField pMartes;
     private javax.swing.JTextField pMiercoles;
     private javax.swing.JTextField pViernes;
-    private javax.swing.JRadioButton rbAuto;
-    private javax.swing.JRadioButton rbMoto;
     // End of variables declaration//GEN-END:variables
 }
