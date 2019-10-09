@@ -178,9 +178,8 @@ public class Principal extends javax.swing.JFrame {
         repaint();
         
         try {
-            //HACES DOBLE CLICK EN EL BOTON Y DEBERIAS PEGAR AHI ESTE METODO
-            //DIBUJAMOS EL HISTOGRAMA
-            //A PARTIR DE AQUI SE CREA EL GRAFICO REALMENTE
+            //SE DIBUJA EL HISTOGRAMA
+            //A PARTIR DE AQUI SE CREA EL GRAFICO
           /*  
           Class.forName("com.mysql.cj.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcomedor", "root", "");
