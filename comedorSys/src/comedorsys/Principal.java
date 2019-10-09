@@ -184,25 +184,27 @@ public class Principal extends javax.swing.JFrame {
           Class.forName("com.mysql.cj.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcomedor", "root", "");
           Statement stat = conexion.createStatement(); 
-             ArrayList<Integer> histogramaCanal = new ArrayList<Integer>();
-             ResultSet l = stat.executeQuery("SELECT COUNT(*) FROM menuscol");
-             int count = l.getInt(1);
-              ResultSet rs = stat.executeQuery("SELECT * FROM menuscol");
-              ArrayList<String> columnname = new ArrayList<String>();;
-              int i = 1;
-             for (int x=1;x<=rs.getMetaData().getColumnCount();x++){
-                 columnname.add(rs.getMetaData().getColumnName(x));
-             }   
              
-             while (rs.next()){
-                 for (i=3;i<=11;i=i+2){
+            ArrayList<Integer> histogramaCanal = new ArrayList<Integer>(); //cantidad de barritas
+             
+            ResultSet l = stat.executeQuery("SELECT COUNT(*) FROM menuscol");
+            int count = l.getInt(1);
+            ResultSet rs = stat.executeQuery("SELECT * FROM menuscol");
+            ArrayList<String> columnname = new ArrayList<String>();;
+            int i = 1;
+            for (int x=1;x<=rs.getMetaData().getColumnCount();x++){
+                 columnname.add(rs.getMetaData().getColumnName(x));
+            }   
+             
+            while (rs.next()){
+                for (i=3;i<=11;i=i+2){
                     String comparar = rs.getString(i);
                     ResultSet uso = stat.executeQuery("SELECT COUNT(*) from menuscol where clunes = " +comparar +  "or cmartes = " +comparar+"or cmiercoles = " +comparar+"or cjueves = "+comparar+"or cviernes = "+comparar);
                     histogramaCanal.add(uso.getInt(1));
                 } 
-             }
-             int[] ret = new int[histogramaCanal.size()];
-             for (int m=0; i < ret.length; m++)
+            }
+            int[] ret = new int[histogramaCanal.size()];
+            for (int m=0; i < ret.length; m++)
                     {
                         ret[i] = histogramaCanal.get(i).intValue();
                     }
@@ -210,8 +212,7 @@ public class Principal extends javax.swing.JFrame {
             int[] ret = {1,2,6,10};
             DibujarGrafico ObjDibujaHisto=new DibujarGrafico();
             //Color color = new color();
-                        ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red);
-                        
+                        ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red);          
             //jpanel_rojo deberia ser el jpanel de la ventana que llama el boton
                     
            

@@ -24,6 +24,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -266,12 +267,13 @@ public class PanelMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
      String fechaHora = "";
-     static String ip="localhost"; //colocar la direccion de la base de dato
+     static String ip="192.168.2.105"; //colocar la direccion de la base de dato
      static String bd="bdcomedor"; //nombre de la basee de datos
      static String login="root"; //usuario de la base de datos
-     static String password=""; //contraseña de la base de datos
+     static String password="comedor"; //contraseña de la base de datos
      static String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
      //Connection conn=null;
+     String consulta;
     
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
 
@@ -287,7 +289,20 @@ public class PanelMenu extends javax.swing.JPanel {
             System.out.print(dateFormat.format(date)); //Imprime la hora, por las dudas
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
             
+            consulta = "SELECT COUNT(*) FROM menusfila";
+            System.out.println(consulta);
+            ResultSet w = stat.executeQuery(consulta);
+            
+            
+            w.next();
+            System.out.println("numero de renglones: "+w.getInt(1));
+                       
+            
+            System.out.println("numero de semanas: "+w);
+           
+            
             //Secuencia SQL para insertar
+ 
             String sql = "INSERT INTO menuscol "
                     + "(fecha,"
                     + "clunes,plunes,"
