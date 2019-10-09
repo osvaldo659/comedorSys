@@ -26,16 +26,16 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
-        System.out.println("Hello World!"); // Display the string.
+        //System.out.println("Hello World!"); // Display the string.
         initComponents();
+        setSize(1125,480);
         
-        setSize(950,450);
         panelmenus = new PanelMenu();
-        panelmenus.setBounds(300,0,1116,400);
+        panelmenus.setBounds(405,0,1125,480);
         add(panelmenus);
         
         panelhistoricos = new PanelHistoricos();
-        panelhistoricos.setBounds(350,0,1116,400);
+        panelhistoricos.setBounds(405,0,1125,480);
         add(panelhistoricos);
         panelhistoricos.setVisible(false);
         
@@ -161,7 +161,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
-        setSize(950,450);
+        setSize(1125,480);
         panelhistoricos.setVisible(false);
         panelmenus.setVisible(true);
         revalidate();
@@ -170,7 +170,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnHistoricosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricosActionPerformed
         // TODO add your handling code here:
-        setSize(1116,450);
+        setSize(1125,480);
         //add(panelListarVehiculos);
         panelhistoricos.setVisible(true);
         panelmenus.setVisible(false);
@@ -178,11 +178,10 @@ public class Principal extends javax.swing.JFrame {
         repaint();
         
         try {
-            //HACES DOBLE CLICK EN EL BOTON Y DEBERIAS PEGAR AHI ESTE METODO
-            //DIBUJAMOS EL HISTOGRAMA
-            //A PARTIR DE AQUI SE CREA EL GRAFICO REALMENTE
-            
-          Class.forName("com.mysql.jdbc.Driver");
+            //SE DIBUJA EL HISTOGRAMA
+            //A PARTIR DE AQUI SE CREA EL GRAFICO
+          /*  
+          Class.forName("com.mysql.cj.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcomedor", "root", "");
           Statement stat = conexion.createStatement(); 
              ArrayList<Integer> histogramaCanal = new ArrayList<Integer>();
@@ -207,7 +206,8 @@ public class Principal extends javax.swing.JFrame {
                     {
                         ret[i] = histogramaCanal.get(i).intValue();
                     }
-            //int[] ret = {1,2,6,10};
+            */
+            int[] ret = {1,2,6,10};
             DibujarGrafico ObjDibujaHisto=new DibujarGrafico();
             //Color color = new color();
                         ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red);
