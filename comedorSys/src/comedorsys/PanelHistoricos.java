@@ -48,7 +48,7 @@ public class PanelHistoricos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addContainerGap(357, Short.MAX_VALUE))
+                .addContainerGap(437, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
