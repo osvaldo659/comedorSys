@@ -47,7 +47,7 @@ public class PanelMenu extends javax.swing.JPanel {
         initComponents();
          
         try { //valida y verifica que la libreria este instalada
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -266,13 +266,20 @@ public class PanelMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
      String fechaHora = "";
+     static String ip="localhost"; //colocar la direccion de la base de dato
+     static String bd="bdcomedor"; //nombre de la basee de datos
+     static String login="root"; //usuario de la base de datos
+     static String password=""; //contraseña de la base de datos
+     static String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
+     //Connection conn=null;
     
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
 
         try {
-             //ABAJO SE DEBE COLOCAR LA DIRECCION DE LA BASE DE DATO Y EL NOMBRE
-            //Connection conexion = DriverManager.getConnection("jdbc:mysql://192.168.2.104/bdcomedor", "root", "comedor");
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcomedor", "root", "");
+            //CREA LA CONXION CON LA BASE DE DATOS
+            Connection conexion = DriverManager.getConnection(url, login, password);
+            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
+            
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //se coloca a formato de MySQL
             Calendar cal = Calendar.getInstance(); //Toma fecha actual
             Date date = cal.getTime(); //Toma la hora
