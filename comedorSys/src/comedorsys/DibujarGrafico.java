@@ -11,6 +11,7 @@ package comedorsys;
  */
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -31,12 +32,12 @@ public class DibujarGrafico {
      * @param jPanelHistograma JPanel donde el histograma será dibujado
      * @param colorBarras color de cuál será dibujado el histograma
      */
-    public void crearHistograma(int[] histograma,JPanel jPanelHistograma,Color colorBarras) {
+    public void crearHistograma(int[] histograma,JPanel jPanelHistograma,Color colorBarras, ArrayList<String> nombres) {
         //Creamos el dataSet y añadimos el histograma
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         String serie = "Dias servidos";
         for (int i = 0; i < histograma.length; i++){
-            dataset.addValue(histograma[i], serie, "plato" + i);
+            dataset.addValue(histograma[i], serie, nombres.get(i));
         }
         //Creamos el chart
         JFreeChart chart = ChartFactory.createBarChart("Histograma de Frecuencia", "Platillos", "Días",
