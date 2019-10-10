@@ -185,10 +185,10 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
-        String ip="192.168.2.105"; //colocar la direccion de la base de dato
+        String ip="localhost"; //colocar la direccion de la base de dato
         String bd="bdcomedor"; //nombre de la basee de datos
         String login="root"; //usuario de la base de datos
-        String password="comedor"; //contraseña de la base de datos
+        String password=""; //contraseña de la base de datos
         String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
         //Connection conn=null;
         String consulta;
@@ -210,15 +210,19 @@ public class Principal extends javax.swing.JFrame {
             
             consulf = "SELECT * FROM frecuencias";
             ResultSet rs = stat.executeQuery(consulf);
+            ArrayList<Integer> histogramaCanal = new ArrayList<Integer>();
+            ArrayList<String> nombres = new ArrayList<String>();
             while (rs.next())
             {
-                System.out.println("Plato="+rs.getObject("platos")+
-                    ", Frecuencia="+rs.getObject("contador"));
+                //System.out.println("Plato="+rs.getObject("platos")+
+                  //  ", Frecuencia="+rs.getObject("contador"));
+                histogramaCanal.add(Integer.parseInt(rs.getString("contador")));
+                nombres.add(rs.getString("platos"));
             }
             rs.close();
             
         /*     
-            ArrayList<Integer> histogramaCanal = new ArrayList<Integer>(); //cantidad de barritas
+             //cantidad de barritas
              
             ResultSet l = stat.executeQuery("SELECT COUNT(*) FROM menuscol");
             int count = l.getInt(1);
@@ -236,16 +240,18 @@ public class Principal extends javax.swing.JFrame {
                     histogramaCanal.add(uso.getInt(1));
                 } 
             }
-            int[] ret = new int[histogramaCanal.size()];
-            for (int m=0; i < ret.length; m++)
-                    {
-                        ret[i] = histogramaCanal.get(i).intValue();
-                    }
+            
+            
             */
-        int[] ret = {1,2,5,10};
+        //int[] ret = {1,2,5,10};
+        int[] ret = new int[histogramaCanal.size()];
+        for (int m=0; m < ret.length; m++)
+                    {
+                        ret[m] = histogramaCanal.get(m).intValue();
+                    }
             DibujarGrafico ObjDibujaHisto=new DibujarGrafico();
             //Color color = new color();
-                        ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red);          
+                        ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red, nombres);          
             //jpanel_rojo deberia ser el jpanel de la ventana que llama el boton
                     
            
