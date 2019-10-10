@@ -254,9 +254,9 @@ public class PanelMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
      String fechaHora = "";
-     static String ip="localhost"; //colocar la direccion de la base de dato
+     static String ip="192.168.2.105"; //colocar la direccion de la base de dato
      static String bd="bdcomedor"; //nombre de la basee de datos
-     static String login=""; //usuario de la base de datos
+     static String login="root"; //usuario de la base de datos
      static String password="comedor"; //contraseña de la base de datos
      static String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
      //Connection conn=null;
