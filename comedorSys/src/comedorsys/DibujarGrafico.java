@@ -40,7 +40,7 @@ public class DibujarGrafico {
             dataset.addValue(histograma[i], serie, nombres.get(i));
         }
         //Creamos el chart
-        JFreeChart chart = ChartFactory.createBarChart("Histograma de Frecuencia", "Platillos", "Días",
+        JFreeChart chart = ChartFactory.createBarChart("Histograma de Frecuencia", "Platillos", "Cantidad de Días Repetidos",
                                     dataset, PlotOrientation.VERTICAL, true, true, false);
         //Modificamos el diseño del chart
         CategoryPlot plot = (CategoryPlot) chart.getPlot();

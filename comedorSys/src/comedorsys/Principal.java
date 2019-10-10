@@ -33,11 +33,11 @@ public class Principal extends javax.swing.JFrame {
         setSize(1125,480);
         
         panelmenus = new PanelMenu();
-        panelmenus.setBounds(405,0,1125,550);
+        panelmenus.setBounds(360,0,1125,550);
         add(panelmenus);
         
         panelhistoricos = new PanelHistoricos();
-        panelhistoricos.setBounds(405,0,1350,550);
+        panelhistoricos.setBounds(360,0,1300,550);
         add(panelhistoricos);
         panelhistoricos.setVisible(false);
         
@@ -62,78 +62,89 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Menu.setBackground(new java.awt.Color(28, 62, 74));
+
+        titulo.setFont(new java.awt.Font("Leelawadee UI", 1, 36)); // NOI18N
+        titulo.setForeground(new java.awt.Color(239, 235, 206));
         titulo.setText("comedorSystem");
 
-        imagenPortada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comedorsys/graficos.png"))); // NOI18N
+        imagenPortada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comedorsys/diagramas.png"))); // NOI18N
 
-        btnMenu.setLabel("Menu");
+        btnMenu.setBackground(new java.awt.Color(239, 235, 206));
+        btnMenu.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        btnMenu.setLabel("MENU");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
             }
         });
 
-        btnHistoricos.setLabel("HIstoricos");
+        btnHistoricos.setBackground(new java.awt.Color(239, 235, 206));
+        btnHistoricos.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        btnHistoricos.setLabel("HISTORICOS");
         btnHistoricos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHistoricosActionPerformed(evt);
             }
         });
 
-        btnSalir.setLabel("Salir");
+        btnSalir.setBackground(new java.awt.Color(239, 235, 206));
+        btnSalir.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        btnSalir.setLabel("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
 
-        btnMercaderia.setLabel("Mercaderia");
+        btnMercaderia.setBackground(new java.awt.Color(239, 235, 206));
+        btnMercaderia.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        btnMercaderia.setLabel("MERCADERIA");
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(imagenPortada))
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(titulo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnMercaderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(25, 25, 25)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnHistoricos, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnHistoricos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                        .addComponent(imagenPortada, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 25, Short.MAX_VALUE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(titulo))
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addComponent(btnMercaderia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(titulo)
-                .addGap(18, 18, 18)
-                .addComponent(imagenPortada)
+                .addGap(26, 26, 26)
+                .addComponent(imagenPortada, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHistoricos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMercaderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addComponent(btnHistoricos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMercaderia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,16 +152,12 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addGap(0, 387, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -173,7 +180,6 @@ public class Principal extends javax.swing.JFrame {
     private void btnHistoricosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricosActionPerformed
         // TODO add your handling code here:
         setSize(1125,480);
-        //add(panelListarVehiculos);
         panelhistoricos.setVisible(true);
         panelmenus.setVisible(false);
         revalidate();
@@ -190,8 +196,6 @@ public class Principal extends javax.swing.JFrame {
         String login="root"; //usuario de la base de datos
         String password=""; //contraseña de la base de datos
         String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
-        //Connection conn=null;
-        String consulta;
         String consulf;
         
         
@@ -201,48 +205,19 @@ public class Principal extends javax.swing.JFrame {
             if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
             
-            consulta = "SELECT COUNT(*) FROM frecuencias";
-            ResultSet w = stat.executeQuery(consulta);
-            w.next();
-            int nplatos = w.getInt(1);
-            System.out.println("Cantidad de platos para mostrar: "+nplatos);
-            w.close();
-            
             consulf = "SELECT * FROM frecuencias";
             ResultSet rs = stat.executeQuery(consulf);
             ArrayList<Integer> histogramaCanal = new ArrayList<Integer>();
             ArrayList<String> nombres = new ArrayList<String>();
-            while (rs.next())
+            while (rs.next()) //Corre cada registro de la consulta hasta fin (false)
             {
                 //System.out.println("Plato="+rs.getObject("platos")+
-                  //  ", Frecuencia="+rs.getObject("contador"));
+                // ", Frecuencia="+rs.getObject("contador"));
                 histogramaCanal.add(Integer.parseInt(rs.getString("contador")));
                 nombres.add(rs.getString("platos"));
             }
             rs.close();
-            
-        /*     
-             //cantidad de barritas
-             
-            ResultSet l = stat.executeQuery("SELECT COUNT(*) FROM menuscol");
-            int count = l.getInt(1);
-            ResultSet rs = stat.executeQuery("SELECT * FROM menuscol");
-            ArrayList<String> columnname = new ArrayList<String>();;
-            int i = 1;
-            for (int x=1;x<=rs.getMetaData().getColumnCount();x++){
-                 columnname.add(rs.getMetaData().getColumnName(x));
-            }   
-             
-            while (rs.next()){
-                for (i=3;i<=11;i=i+2){
-                    String comparar = rs.getString(i);
-                    ResultSet uso = stat.executeQuery("SELECT COUNT(*) from menuscol where clunes = " +comparar +  "or cmartes = " +comparar+"or cmiercoles = " +comparar+"or cjueves = "+comparar+"or cviernes = "+comparar);
-                    histogramaCanal.add(uso.getInt(1));
-                } 
-            }
-            
-            
-            */
+        
         //int[] ret = {1,2,5,10};
         int[] ret = new int[histogramaCanal.size()];
         for (int m=0; m < ret.length; m++)
@@ -251,10 +226,7 @@ public class Principal extends javax.swing.JFrame {
                     }
             DibujarGrafico ObjDibujaHisto=new DibujarGrafico();
             //Color color = new color();
-                        ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red, nombres);          
-            //jpanel_rojo deberia ser el jpanel de la ventana que llama el boton
-                    
-           
+            ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red, nombres);          
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo cargar la imagen", "Error", JOptionPane.ERROR_MESSAGE);
         }

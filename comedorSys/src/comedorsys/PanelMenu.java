@@ -1,25 +1,6 @@
 
 package comedorsys;
 
-/*
-import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.kernel.geom.PageSize;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import static com.itextpdf.kernel.pdf.PdfName.Font;
-import static com.itextpdf.kernel.pdf.PdfName.FontFamily;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.border.Border;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Text;
-import com.sun.javafx.geom.Rectangle;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import sun.text.normalizer.RangeValueIterator.Element;
-*/
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -51,7 +32,6 @@ public class PanelMenu extends javax.swing.JPanel {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
-
         }   
     }
 
@@ -160,17 +140,17 @@ public class PanelMenu extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbviernes, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbjueves, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbmiercoles, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbmartes, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblunes, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
+                            .addComponent(lblunes, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbmiercoles, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(44, 44, 44)
                                 .addComponent(label7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(159, 159, 159)
+                                .addGap(110, 110, 110)
                                 .addComponent(label8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(74, 74, 74))
+                                .addGap(78, 78, 78))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cViernes, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,7 +165,7 @@ public class PanelMenu extends javax.swing.JPanel {
                                     .addComponent(pMiercoles, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(pJueves, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(pViernes, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(30, 30, 30))
+                        .addGap(63, 63, 63))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -254,18 +234,17 @@ public class PanelMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
      String fechaHora = "";
-     static String ip="192.168.2.105"; //colocar la direccion de la base de dato
-     static String bd="bdcomedor"; //nombre de la basee de datos
-     static String login="root"; //usuario de la base de datos
-     static String password="comedor"; //contraseña de la base de datos
-     static String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
-     //Connection conn=null;
+     String ip="localhost"; //colocar la direccion de la base de dato
+        String bd="bdcomedor"; //nombre de la basee de datos
+        String login="root"; //usuario de la base de datos
+        String password=""; //contraseña de la base de datos
+        String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
      String consulta;
     
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
 
         try {
-            //CREA LA CONXION CON LA BASE DE DATOS
+            //CREA LA CONEXION CON LA BASE DE DATOS
             Connection conexion = DriverManager.getConnection(url, login, password);
             if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
             
@@ -286,7 +265,6 @@ public class PanelMenu extends javax.swing.JPanel {
             System.out.println("numero de semanas: "+semana);
             
             //Secuencia SQL para insertar en menusfila
-            
             String lunes = "INSERT INTO menusfila (semana,dia,plato,postre) "
                     + "VALUES ('" + (semana+1) + "','" +lblunes.getText()+"',"
                     + "'" + cLunes.getText() + "',"
@@ -313,7 +291,6 @@ public class PanelMenu extends javax.swing.JPanel {
             stat.executeUpdate(miercoles);
             stat.executeUpdate(jueves);
             stat.executeUpdate(viernes);
-            
 
             //Secuencia SQL para insertar en menuscol
             /*
