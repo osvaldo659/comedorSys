@@ -66,7 +66,7 @@ public class Principal extends javax.swing.JFrame {
 
         titulo.setFont(new java.awt.Font("Leelawadee UI", 1, 36)); // NOI18N
         titulo.setForeground(new java.awt.Color(239, 235, 206));
-        titulo.setText("comedorSystem");
+        titulo.setText("Comedor Escolar");
 
         imagenPortada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comedorsys/diagramas.png"))); // NOI18N
 
@@ -153,7 +153,7 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 387, Short.MAX_VALUE))
+                .addGap(0, 14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
