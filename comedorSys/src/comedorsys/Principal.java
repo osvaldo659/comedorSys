@@ -11,6 +11,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -177,14 +179,33 @@ public class Principal extends javax.swing.JFrame {
         revalidate();
         repaint();
         
+        try { //valida y verifica que la libreria este instalada
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        String ip="192.168.2.105"; //colocar la direccion de la base de dato
+        String bd="bdcomedor"; //nombre de la basee de datos
+        String login="root"; //usuario de la base de datos
+        String password="comedor"; //contraseña de la base de datos
+        String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
+        //Connection conn=null;
+        String consulta;
+        
+        
         try {
-            //SE DIBUJA EL HISTOGRAMA
-            //A PARTIR DE AQUI SE CREA EL GRAFICO
-          /*  
-          Class.forName("com.mysql.cj.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcomedor", "root", "");
-          Statement stat = conexion.createStatement(); 
-             
+            //CREA LA CONXION CON LA BASE DE DATOS
+            Connection conexion = DriverManager.getConnection(url, login, password);
+            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
+            Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
+            
+            consulta = "SELECT COUNT(*) FROM frecuencias";
+            ResultSet w = stat.executeQuery(consulta);
+            w.next();
+            int nplatos = w.getInt(1);
+            System.out.println("Cantidad de platos para mostrar: "+nplatos);
+        /*     
             ArrayList<Integer> histogramaCanal = new ArrayList<Integer>(); //cantidad de barritas
              
             ResultSet l = stat.executeQuery("SELECT COUNT(*) FROM menuscol");
@@ -209,7 +230,7 @@ public class Principal extends javax.swing.JFrame {
                         ret[i] = histogramaCanal.get(i).intValue();
                     }
             */
-            int[] ret = {1,2,6,10};
+        int[] ret = {1,2,5,10};
             DibujarGrafico ObjDibujaHisto=new DibujarGrafico();
             //Color color = new color();
                         ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red);          
