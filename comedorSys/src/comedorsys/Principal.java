@@ -192,6 +192,7 @@ public class Principal extends javax.swing.JFrame {
         String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
         //Connection conn=null;
         String consulta;
+        String consulf;
         
         
         try {
@@ -205,6 +206,17 @@ public class Principal extends javax.swing.JFrame {
             w.next();
             int nplatos = w.getInt(1);
             System.out.println("Cantidad de platos para mostrar: "+nplatos);
+            w.close();
+            
+            consulf = "SELECT * FROM frecuencias";
+            ResultSet rs = stat.executeQuery(consulf);
+            while (rs.next())
+            {
+                System.out.println("Plato="+rs.getObject("platos")+
+                    ", Frecuencia="+rs.getObject("contador"));
+            }
+            rs.close();
+            
         /*     
             ArrayList<Integer> histogramaCanal = new ArrayList<Integer>(); //cantidad de barritas
              
