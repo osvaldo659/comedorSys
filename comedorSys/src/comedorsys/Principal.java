@@ -30,7 +30,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         //System.out.println("Hello World!"); // Display the string.
         initComponents();
-        setSize(1125,550);
+        setSize(1125,480);
         
         panelmenus = new PanelMenu();
         panelmenus.setBounds(405,0,1125,550);
@@ -172,7 +172,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnHistoricosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricosActionPerformed
         // TODO add your handling code here:
-        setSize(1350,550);
+        setSize(1125,480);
         //add(panelListarVehiculos);
         panelhistoricos.setVisible(true);
         panelmenus.setVisible(false);
@@ -185,10 +185,10 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
-        String ip="192.168.2.105"; //colocar la direccion de la base de dato
+        String ip="localhost"; //colocar la direccion de la base de dato
         String bd="bdcomedor"; //nombre de la basee de datos
         String login="root"; //usuario de la base de datos
-        String password="comedor"; //contraseña de la base de datos
+        String password=""; //contraseña de la base de datos
         String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
         //Connection conn=null;
         String consulta;
