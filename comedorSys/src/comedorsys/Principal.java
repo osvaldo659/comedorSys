@@ -23,7 +23,9 @@ public class Principal extends javax.swing.JFrame {
 
     PanelMenu panelmenus;
     PanelHistoricos panelhistoricos;
-    
+    Baja baja;
+    menuABM menu;
+    Modificacion modi;
     /**
      * Creates new form Principal
      */
@@ -35,11 +37,20 @@ public class Principal extends javax.swing.JFrame {
         panelmenus = new PanelMenu();
         panelmenus.setBounds(360,0,1125,550);
         add(panelmenus);
-        
+        panelmenus.setVisible(false);
         panelhistoricos = new PanelHistoricos();
         panelhistoricos.setBounds(360,0,1300,550);
         add(panelhistoricos);
         panelhistoricos.setVisible(false);
+        baja = new Baja();
+        baja.setBounds(360,0,1300,550);
+        add(baja);
+        baja.setVisible(false);
+        menu = new menuABM();
+        menu.setBounds(360,0,1300,550);
+        add(menu);
+        menu.setVisible(false);
+        
         
     }
 
@@ -109,14 +120,6 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnHistoricos, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(imagenPortada, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 25, Short.MAX_VALUE))
-                    .addGroup(MenuLayout.createSequentialGroup()
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MenuLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -125,7 +128,15 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(btnMercaderia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnHistoricos, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(imagenPortada, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +183,9 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         setSize(1125,480);
         panelhistoricos.setVisible(false);
-        panelmenus.setVisible(true);
+        panelmenus.setVisible(false);
+        baja.setVisible(false);
+        menu.setVisible(true);
         revalidate();
         repaint();
     }//GEN-LAST:event_btnMenuActionPerformed
@@ -182,54 +195,12 @@ public class Principal extends javax.swing.JFrame {
         setSize(1125,480);
         panelhistoricos.setVisible(true);
         panelmenus.setVisible(false);
+        baja.setVisible(false);
+        menu.setVisible(false);
         revalidate();
         repaint();
         
-        try { //valida y verifica que la libreria este instalada
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
-        } 
         
-        String ip="localhost"; //colocar la direccion de la base de dato
-        String bd="bdcomedor"; //nombre de la basee de datos
-        String login="root"; //usuario de la base de datos
-        String password=""; //contraseña de la base de datos
-        String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
-        String consulf;
-        
-        
-        try {
-            //CREA LA CONXION CON LA BASE DE DATOS
-            Connection conexion = DriverManager.getConnection(url, login, password);
-            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
-            Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
-            
-            consulf = "SELECT * FROM frecuencias";
-            ResultSet rs = stat.executeQuery(consulf);
-            ArrayList<Integer> histogramaCanal = new ArrayList<Integer>();
-            ArrayList<String> nombres = new ArrayList<String>();
-            while (rs.next()) //Corre cada registro de la consulta hasta fin (false)
-            {
-                //System.out.println("Plato="+rs.getObject("platos")+
-                // ", Frecuencia="+rs.getObject("contador"));
-                histogramaCanal.add(Integer.parseInt(rs.getString("contador")));
-                nombres.add(rs.getString("platos"));
-            }
-            rs.close();
-        
-        //int[] ret = {1,2,5,10};
-        int[] ret = new int[histogramaCanal.size()];
-        for (int m=0; m < ret.length; m++)
-                    {
-                        ret[m] = histogramaCanal.get(m).intValue();
-                    }
-            DibujarGrafico ObjDibujaHisto=new DibujarGrafico();
-            //Color color = new color();
-            ObjDibujaHisto.crearHistograma(ret, panelhistoricos.getjPanel1(), Color.red, nombres);          
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la imagen", "Error", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_btnHistoricosActionPerformed
 
     /**
