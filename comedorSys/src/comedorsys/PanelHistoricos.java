@@ -5,6 +5,15 @@
  */
 package comedorsys;
 
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -18,6 +27,51 @@ public class PanelHistoricos extends javax.swing.JPanel {
      */
     public PanelHistoricos() {
         initComponents();
+        try { //valida y verifica que la libreria este instalada
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        String ip="localhost"; //colocar la direccion de la base de dato
+        String bd="bdcomedor"; //nombre de la basee de datos
+        String login="root"; //usuario de la base de datos
+        String password=""; //contraseña de la base de datos
+        String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
+        String consulf;
+        
+                
+        
+        try {
+            //CREA LA CONXION CON LA BASE DE DATOS
+            Connection conexion = DriverManager.getConnection(url, login, password);
+            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
+            Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
+            
+            consulf = "SELECT * FROM frecuencias";
+            ResultSet rs = stat.executeQuery(consulf);
+            ArrayList<Integer> histogramaCanal = new ArrayList<Integer>();
+            ArrayList<String> nombres = new ArrayList<String>();
+            while (rs.next()) //Corre cada registro de la consulta hasta fin (false)
+            {
+                //System.out.println("Plato="+rs.getObject("platos")+
+                // ", Frecuencia="+rs.getObject("contador"));
+                histogramaCanal.add(Integer.parseInt(rs.getString("contador")));
+                nombres.add(rs.getString("platos"));
+            }
+            rs.close();
+        
+        //int[] ret = {1,2,5,10};
+        int[] ret = new int[histogramaCanal.size()];
+        for (int m=0; m < ret.length; m++)
+                    {
+                        ret[m] = histogramaCanal.get(m).intValue();
+                    }
+            DibujarGrafico ObjDibujaHisto=new DibujarGrafico();
+            //Color color = new color();
+            ObjDibujaHisto.crearHistograma(ret, jPanel1, Color.red, nombres);          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la imagen", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -63,7 +117,9 @@ public class PanelHistoricos extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+        
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel jPanel1;
