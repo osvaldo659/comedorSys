@@ -227,25 +227,25 @@ public class PanelMenu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-     String fechaHora = "";
-     String ip="localhost"; //colocar la direccion de la base de dato
+        //String fechaHora = "";
+        String ip="localhost"; //colocar la direccion de la base de dato
         String bd="bdcomedor"; //nombre de la basee de datos
         String login="root"; //usuario de la base de datos
         String password=""; //contraseña de la base de datos
         String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
-     String consulta;
+        String consulta;
     
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
 
         try {
             //CREA LA CONEXION CON LA BASE DE DATOS
             Connection conexion = DriverManager.getConnection(url, login, password);
-            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
+            if(conexion!=null){System.out.println("Connecting CARGA ["+conexion+"] OK");}
             
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //se coloca a formato de MySQL
             Calendar cal = Calendar.getInstance(); //Toma fecha actual
             Date date = cal.getTime(); //Toma la hora
-            fechaHora = dateFormat.format(date); //coloca la fecha en la forma de MySQL
+            //fechaHora = dateFormat.format(date); //coloca la fecha en la forma de MySQL
             System.out.print(dateFormat.format(date)); //Imprime la hora, por las dudas
             
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas

@@ -10,10 +10,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -28,11 +24,15 @@ public class Modificacion extends javax.swing.JPanel {
     /**
      * Creates new form Modificacion
      */
-    JTextField textos[];
+    
+        JTextField textos[];
     
     public Modificacion() {
         initComponents();
-        textos[0] = jTextField1;
+          
+          /*  
+           textos[0] = jTextField1;
+           
            textos[1] = jTextField2;
            textos[2] = jTextField3;
            textos[3] = jTextField4;
@@ -42,11 +42,12 @@ public class Modificacion extends javax.swing.JPanel {
            textos[7] = jTextField8;
            textos[8] = jTextField9;
            textos[9] = jTextField10;
+          */
+           
         try { //valida y verifica que la libreria este instalada
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
-            
+            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);  
         }   
     }
 
@@ -79,8 +80,8 @@ public class Modificacion extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 21)); // NOI18N
         jLabel1.setText("Modificacion");
@@ -131,19 +132,19 @@ public class Modificacion extends javax.swing.JPanel {
 
         jTextField11.setText("jTextField11");
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 21)); // NOI18N
-        jButton1.setText("Modificar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setFont(new java.awt.Font("Arial Black", 1, 21)); // NOI18N
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 21)); // NOI18N
-        jButton2.setText("Buscar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setFont(new java.awt.Font("Arial Black", 1, 21)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -185,9 +186,9 @@ public class Modificacion extends javax.swing.JPanel {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(61, 61, 61)
-                                .addComponent(jButton2)
+                                .addComponent(btnBuscar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                                .addComponent(jButton1))))
+                                .addComponent(btnModificar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,59 +240,62 @@ public class Modificacion extends javax.swing.JPanel {
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2)))
+                        .addComponent(btnModificar)
+                        .addComponent(btnBuscar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-     String fechaHora = "";
-     String ip="localhost"; //colocar la direccion de la base de dato
+        String fechaHora = "";
+        String ip="localhost"; //colocar la direccion de la base de dato
         String bd="bdcomedor"; //nombre de la basee de datos
         String login="root"; //usuario de la base de datos
         String password=""; //contraseña de la base de datos
         String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
-     String consulta;
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String consulta;
+        
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
         try {
             //CREA LA CONEXION CON LA BASE DE DATOS
             Connection conexion = DriverManager.getConnection(url, login, password);
-            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
+            if(conexion!=null){System.out.println("Connecting Modificar ["+conexion+"] OK");}
             
-            
-          
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
             
-            //consulta = "SELECT COUNT(*) FROM menusfila";
-            //System.out.println(consulta);
-            //ResultSet w = stat.executeQuery(consulta);
+            consulta = "SELECT COUNT(*) FROM menusfila";
+            System.out.println(consulta);
+            ResultSet w = stat.executeQuery(consulta);
             
-            //w.next();
-            //JTextField textos[] = new JTextField[10];
+            w.next();
+            JTextField textos[] = new JTextField[10];
           
+           /* 
             String lunes = "UPDATE menusfila SET plato = '" +textos[0].getText()+"' , postre = '" +textos[1].getText()+ "' WHERE dia = 'LUNES'";
-           String martes = "UPDATE menusfila SET plato = '" +textos[2].getText()+"' , postre = '" +textos[3].getText()+ "' WHERE dia = 'MARTES'"; 
-           String miercoles = "UPDATE menusfila SET plato = '" +textos[4].getText()+"' , postre = '" +textos[5].getText()+ "' WHERE dia = 'MIERCOLES'";
-           String jueves = "UPDATE menusfila SET plato = '" +textos[6].getText()+"' , postre = '" +textos[7].getText()+ "' WHERE dia = 'JUEVES'"; 
-           String viernes = "UPDATE menusfila SET plato = '" +textos[8].getText()+"' , postre = '" +textos[9].getText()+ "' WHERE dia = 'VIERNES'";
-           
-           stat.executeUpdate(lunes);
+            String martes = "UPDATE menusfila SET plato = '" +textos[2].getText()+"' , postre = '" +textos[3].getText()+ "' WHERE dia = 'MARTES'"; 
+            String miercoles = "UPDATE menusfila SET plato = '" +textos[4].getText()+"' , postre = '" +textos[5].getText()+ "' WHERE dia = 'MIERCOLES'";
+            String jueves = "UPDATE menusfila SET plato = '" +textos[6].getText()+"' , postre = '" +textos[7].getText()+ "' WHERE dia = 'JUEVES'"; 
+            String viernes = "UPDATE menusfila SET plato = '" +textos[8].getText()+"' , postre = '" +textos[9].getText()+ "' WHERE dia = 'VIERNES'";
+           */
+           /* 
+            stat.executeUpdate(lunes);
             stat.executeUpdate(martes);
             stat.executeUpdate(miercoles);
             stat.executeUpdate(jueves);
             stat.executeUpdate(viernes);
+           */
+            
             JOptionPane.showMessageDialog(null, "La modificacion fue exitoso"); //mensaje en un panel
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);}
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         try {
             //CREA LA CONEXION CON LA BASE DE DATOS
             Connection conexion = DriverManager.getConnection(url, login, password);
-            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
+            if(conexion!=null){System.out.println("Connecting Buscar ["+conexion+"] OK");}
             
             
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
@@ -300,11 +304,12 @@ public class Modificacion extends javax.swing.JPanel {
             System.out.println(consulta);
             ResultSet w = stat.executeQuery(consulta);
             
-           // w.next();
+           //w.next();
            //JTextField textos[] = new JTextField[10];
            
            int i = 0;
            
+           /*
            while (w.next()) //Corre cada registro de la consulta hasta fin (false)
             {
                 textos[i].setText(w.getString("plato"));
@@ -315,18 +320,17 @@ public class Modificacion extends javax.swing.JPanel {
                 //nombres.add(rs.getString("platos"));
             }
             w.close();
-
+            */
            
-            
-            //JOptionPane.showMessageDialog(null, "El registro fue exitoso"); //mensaje en un panel
+            JOptionPane.showMessageDialog(null, "El registro fue exitoso"); //mensaje en un panel
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);}
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

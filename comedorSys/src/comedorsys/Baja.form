@@ -72,9 +72,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="SEMANA"/>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="SEMANA"/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>

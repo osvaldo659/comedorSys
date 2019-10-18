@@ -21,11 +21,11 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    PanelMenu panelmenus;
+    //PanelMenu panelmenus;
     PanelHistoricos panelhistoricos;
-    Baja baja;
+    //Baja baja;
     menuABM menu;
-    Modificacion modi;
+    //Modificacion modi;
     /**
      * Creates new form Principal
      */
@@ -34,18 +34,25 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         setSize(1125,480);
         
+        /*
         panelmenus = new PanelMenu();
         panelmenus.setBounds(360,0,1125,550);
         add(panelmenus);
         panelmenus.setVisible(false);
+        */
+        
         panelhistoricos = new PanelHistoricos();
         panelhistoricos.setBounds(360,0,1300,550);
         add(panelhistoricos);
         panelhistoricos.setVisible(false);
+        
+        /*
         baja = new Baja();
         baja.setBounds(360,0,1300,550);
         add(baja);
         baja.setVisible(false);
+        */
+        
         menu = new menuABM();
         menu.setBounds(360,0,1300,550);
         add(menu);
@@ -183,8 +190,8 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         setSize(1125,480);
         panelhistoricos.setVisible(false);
-        panelmenus.setVisible(false);
-        baja.setVisible(false);
+        //panelmenus.setVisible(false);
+        //baja.setVisible(false);
         menu.setVisible(true);
         revalidate();
         repaint();
@@ -194,8 +201,8 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         setSize(1125,480);
         panelhistoricos.setVisible(true);
-        panelmenus.setVisible(false);
-        baja.setVisible(false);
+        //panelmenus.setVisible(false);
+        //baja.setVisible(false);
         menu.setVisible(false);
         revalidate();
         repaint();

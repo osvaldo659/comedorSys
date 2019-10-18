@@ -97,17 +97,17 @@ public class Baja extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
      String fechaHora = "";
      String ip="localhost"; //colocar la direccion de la base de dato
-        String bd="bdcomedor"; //nombre de la basee de datos
-        String login="root"; //usuario de la base de datos
-        String password=""; //contraseña de la base de datos
-        String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
+     String bd="bdcomedor"; //nombre de la basee de datos
+     String login="root"; //usuario de la base de datos
+     String password=""; //contraseña de la base de datos
+     String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
      String borrado;   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
          // TODO add your handling code here:
         try {
             Connection conexion = DriverManager.getConnection(url, login, password);
-            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
+            if(conexion!=null){System.out.println("Connecting BAJA ["+conexion+"] OK");}
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
             
             borrado = "DELETE from menusfila where semana = '" + jTextField1.getText() + "'";

@@ -27,11 +27,13 @@ public class PanelHistoricos extends javax.swing.JPanel {
      */
     public PanelHistoricos() {
         initComponents();
+        
         try { //valida y verifica que la libreria este instalada
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            Logger.getLogger(PanelHistoricos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         String ip="localhost"; //colocar la direccion de la base de dato
         String bd="bdcomedor"; //nombre de la basee de datos
         String login="root"; //usuario de la base de datos
@@ -39,12 +41,10 @@ public class PanelHistoricos extends javax.swing.JPanel {
         String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
         String consulf;
         
-                
-        
         try {
             //CREA LA CONXION CON LA BASE DE DATOS
             Connection conexion = DriverManager.getConnection(url, login, password);
-            if(conexion!=null){System.out.println("Connecting database ["+conexion+"] OK");}
+            if(conexion!=null){System.out.println("Connecting Historicos ["+conexion+"] OK");}
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
             
             consulf = "SELECT * FROM frecuencias";
