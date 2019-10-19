@@ -110,9 +110,15 @@ public class Baja extends javax.swing.JPanel {
             if(conexion!=null){System.out.println("Connecting BAJA ["+conexion+"] OK");}
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
             
-            borrado = "DELETE from menusfila where semana = '" + jTextField1.getText() + "'";
-            stat.execute(borrado);
-            JOptionPane.showMessageDialog(null, "Borrado correcto"); //mensaje en un panel
+            if (jTextField1.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this,"No se ha seleccionado nada para eliminar");
+            } else{
+                borrado = "DELETE from menusfila where semana = '" + jTextField1.getText() + "'";
+                stat.execute(borrado);
+                JOptionPane.showMessageDialog(null, "Borrado correcto"); //mensaje en un panel
+            }
+            
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo eliminar", "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed

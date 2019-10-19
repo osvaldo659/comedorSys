@@ -259,7 +259,15 @@ public class PanelMenu extends javax.swing.JPanel {
             System.out.println("numero de semanas: "+semana);
             
             //Secuencia SQL para insertar en menusfila
-            String lunes = "INSERT INTO menusfila (semana,dia,plato,postre) "
+            if (cLunes.getText().isEmpty() || pLunes.getText().isEmpty() || 
+                    cMartes.getText().isEmpty() || pMartes.getText().isEmpty() || 
+                    cMiercoles.getText().isEmpty() || pMiercoles.getText().isEmpty() || 
+                    cJueves.getText().isEmpty() || pJueves.getText().isEmpty() || 
+                    cViernes.getText().isEmpty() || pViernes.getText().isEmpty() ){
+                    JOptionPane.showMessageDialog(this,"No se admiten cuadros vacios");
+                    
+            }else{
+                 String lunes = "INSERT INTO menusfila (semana,dia,plato,postre) "
                     + "VALUES ('" + (semana+1) + "','" +lblunes.getText()+"',"
                     + "'" + cLunes.getText() + "',"
                     + "'" + pLunes.getText() + "')";
@@ -305,6 +313,10 @@ public class PanelMenu extends javax.swing.JPanel {
             */
             
             JOptionPane.showMessageDialog(null, "El registro fue exitoso"); //mensaje en un panel
+            }
+            
+            
+           
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenu.class.getName()).log(Level.SEVERE, null, ex);}
     }//GEN-LAST:event_button1ActionPerformed
