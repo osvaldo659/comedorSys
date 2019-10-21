@@ -14,6 +14,8 @@ public class menuABM extends javax.swing.JPanel {
     PanelMenu panelmenus;
     Baja baja;
     Modificacion modi;
+    PListar listar;
+    
     /**
      * Creates new form menuABM
      */
@@ -31,12 +33,15 @@ public class menuABM extends javax.swing.JPanel {
         add(baja);
         baja.setVisible(false);
         
-        
         modi = new Modificacion();
         modi.setBounds(100,0,1300,550);
         add(modi);
         modi.setVisible(false);
         
+        listar = new PListar();
+        listar.setBounds(100,0,1300,550);
+        add(listar);
+        listar.setVisible(false);       
     }
 
     /**
@@ -117,6 +122,7 @@ public class menuABM extends javax.swing.JPanel {
         panelmenus.setVisible(true);
         baja.setVisible(false);
         modi.setVisible(false);
+        listar.setVisible(false);
         //setVisible(false);
         revalidate();
         repaint();
@@ -129,6 +135,7 @@ public class menuABM extends javax.swing.JPanel {
         panelmenus.setVisible(false);
         baja.setVisible(true);
         modi.setVisible(false);
+        listar.setVisible(false);
         //setVisible(false);
         revalidate();
         repaint();
@@ -141,6 +148,7 @@ public class menuABM extends javax.swing.JPanel {
         panelmenus.setVisible(false);
         baja.setVisible(false);
         modi.setVisible(true);
+        listar.setVisible(false);
         //setVisible(false);
         revalidate();
         repaint();
@@ -148,7 +156,16 @@ public class menuABM extends javax.swing.JPanel {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
+        //setSize(1125,480);
         
+        panelmenus.setVisible(false);
+        baja.setVisible(false);
+        modi.setVisible(false);
+        listar.setVisible(true);
+        //setVisible(false);
+        revalidate();
+        repaint();
+       
     }//GEN-LAST:event_btnListarActionPerformed
 
 
