@@ -5,9 +5,19 @@
  */
 package comedorsys;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author rupa400
+ * @author Ezequias
  */
 public class PListar extends javax.swing.JPanel {
 
@@ -16,6 +26,29 @@ public class PListar extends javax.swing.JPanel {
      */
     public PListar() {
         initComponents();
+        
+        
+        try { //valida y verifica que la libreria este instalada
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PListar.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        /*
+        rbFueraParq.setSelected(true);
+        */
+        
+        
+        TableColumnModel columnModel = tblVehiculos.getColumnModel();
+
+        columnModel.getColumn(0).setPreferredWidth(40);
+        columnModel.getColumn(1).setPreferredWidth(70);
+        columnModel.getColumn(2).setPreferredWidth(150);
+        columnModel.getColumn(3).setPreferredWidth(100);
+        columnModel.getColumn(4).setPreferredWidth(70);
+        //columnModel.getColumn(5).setPreferredWidth(70);
+        //columnModel.getColumn(5).setPreferredWidth(100);
+        
     }
 
     /**
@@ -32,6 +65,7 @@ public class PListar extends javax.swing.JPanel {
         tfSemana = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVehiculos = new javax.swing.JTable();
+        btnBuscar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Buscar Menu");
@@ -44,10 +78,17 @@ public class PListar extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Placa", "Propietario", "Tipo de Vehiculo", "Hora Entrada", "Hora Salida", "Pago"
+                "Semana", "Plato", "Postre", "Hora Entrada", "Hora Salida"
             }
         ));
         jScrollPane1.setViewportView(tblVehiculos);
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,35 +97,111 @@ public class PListar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
+                        .addGap(128, 128, 128)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(tfSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2))
+                        .addGap(109, 109, 109)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel2)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSemana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+    String ip="localhost"; //colocar la direccion de la base de dato
+        String bd="bdcomedor"; //nombre de la basee de datos
+        String login="root"; //usuario de la base de datos
+        String password=""; //contraseña de la base de datos
+        String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
+    
+    String consulta;
+    //String tipoVehiculo = "otro", estado = "", fecha = "";  
+    
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) tblVehiculos.getModel();
+        modelo.setRowCount(0);
 
+        /*
+        if (cbAuto.isSelected()) {
+            if (cbMoto.isSelected()) {
+                tipoVehiculo = "";
+            } else {
+                tipoVehiculo = "Automovil";
+            }
+        } else if (cbMoto.isSelected()) {
+            tipoVehiculo = "Motocicleta";
+        }
 
+        if (dcFechaBusqueda.getDate() != null) {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = dcFechaBusqueda.getDate();
+            fecha = dateFormat.format(date);
+        }
+        */
+
+        try {
+            // TODO add your handling code here:
+            //Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, login, password);
+            if(con!=null){System.out.println("Connecting PListar ["+con+"] OK");}
+            Statement stat = con.createStatement();
+            
+            //consulta = "SELECT * FROM vehiculos WHERE estado='" + estado + "' AND tipovehiculo LIKE'%" + tipoVehiculo + "%' AND placa LIKE '%" + tfPlaca.getText() + "%' AND propietario LIKE '%" + tfPropietario.getText() + "%' AND horaentrada LIKE '" + fecha + "%'";
+            consulta = "SELECT * FROM menusfila WHERE semana=" + tfSemana.getText();
+            System.out.println(consulta);
+            ResultSet rs = stat.executeQuery(consulta);
+            rs.first();
+
+            do {
+                
+                /*
+                String horasalida = rs.getString(6);
+                String pago = rs.getString(7);
+                
+                if (horasalida == null) {
+                    horasalida = "No ha salido";
+                    pago = "0";
+                } else {
+                    horasalida = rs.getString(6).substring(10).substring(0,6);
+                    pago = rs.getString(7);
+                }
+                */
+                
+                //String[] fila = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5).substring(10).substring(0, 6)};
+                String[] fila = {rs.getString(2),rs.getString(4),rs.getString(5)};
+                //String[] fila = {"probando", "otro","asf","hdfgh"};
+                modelo.addRow(fila);
+            } while (rs.next());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PListar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+ 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
