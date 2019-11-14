@@ -48,7 +48,7 @@ public class DibujarGrafico {
         renderer.setSeriesPaint(0, colorBarras); //se podria usar siempre el mismo color jaja
         chart.setAntiAlias(true);
         chart.setBackgroundPaint(new Color(239,235,206)); 
-        jPanelHistograma.setSize(300,470);
+        //jPanelHistograma.setSize(300,470);
         //jPanelHistograma.setMaximumSize ( new Dimension ( 200, 470 ) );
         //jPanelHistograma.setMinimumSize ( new Dimension ( 400, 890 ) );
         jPanelHistograma.removeAll();

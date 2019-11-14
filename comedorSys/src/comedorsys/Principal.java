@@ -26,13 +26,14 @@ public class Principal extends javax.swing.JFrame {
     //Baja baja;
     menuABM menu;
     //Modificacion modi;
+    
     /**
      * Creates new form Principal
      */
     public Principal() {
-        //System.out.println("Hello World!"); // Display the string.
+   
         initComponents();
-        setSize(1125,480);
+        setSize(370,500);
         
         /*
         panelmenus = new PanelMenu();
@@ -54,11 +55,9 @@ public class Principal extends javax.swing.JFrame {
         */
         
         menu = new menuABM();
-        menu.setBounds(360,0,1300,550);
+        menu.setBounds(360,0,1300,450);
         add(menu);
-        menu.setVisible(false);
-        
-        
+        menu.setVisible(false);   
     }
 
     /**
@@ -169,9 +168,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+            .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +185,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
-        setSize(1125,480);
+        setSize(1125,500);
         panelhistoricos.setVisible(false);
         //panelmenus.setVisible(false);
         //baja.setVisible(false);
@@ -199,7 +196,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnHistoricosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricosActionPerformed
         // TODO add your handling code here:
-        setSize(1125,480);
+        setSize(1125,500);
         panelhistoricos.setVisible(true);
         //panelmenus.setVisible(false);
         //baja.setVisible(false);
