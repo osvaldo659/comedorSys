@@ -284,7 +284,7 @@ public class PanelMenu extends javax.swing.JPanel {
                     + "'" + cJueves.getText() + "',"
                     + "'" + pJueves.getText() + "')";
             String viernes = "INSERT INTO menusfila (semana,dia,plato,postre) "
-                    + "VALUES ('" + (semana+1) + "','" +lblunes.getText()+"',"
+                    + "VALUES ('" + (semana+1) + "','" +lbviernes.getText()+"',"
                     + "'" + cViernes.getText() + "',"
                     + "'" + pViernes.getText() + "')";
             
