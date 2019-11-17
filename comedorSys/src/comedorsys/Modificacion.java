@@ -229,7 +229,10 @@ public class Modificacion extends javax.swing.JPanel {
             if(conexion!=null){System.out.println("Connecting Historicos ["+conexion+"] OK");}
             Statement stat = conexion.createStatement(); //Permite hacer registro y consultas
             
-            consulf = "SELECT * FROM menusfila WHERE dia = 'LUNES' and semana = '" + jTextField11.getText() + "'" ;
+            if (jTextField11.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this,"No se ha seleccionado nada para modificar");
+            }else{
+                consulf = "SELECT * FROM menusfila WHERE dia = 'LUNES' and semana = '" + jTextField11.getText() + "'" ;
             ResultSet rs = stat.executeQuery(consulf);
             rs.next();
             jTextField1.setText(rs.getString("plato"));
@@ -259,6 +262,9 @@ public class Modificacion extends javax.swing.JPanel {
             jTextField9.setText(rs.getString("plato"));
             jTextField10.setText(rs.getString("postre"));
             rs.close();
+            }
+            
+            
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Fallo", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -296,7 +302,16 @@ public class Modificacion extends javax.swing.JPanel {
             Connection conexion = DriverManager.getConnection(url, login, password);
             if(conexion!=null){System.out.println("Connecting Historicos ["+conexion+"] OK");}
             Statement stat = conexion.createStatement();
-            String lunes = "UPDATE menusfila SET dia = '" + jTextField1.getText() + "', postre = '" +
+            
+            if (jTextField1.getText().isEmpty() ||  jTextField2.getText().isEmpty() || 
+                jTextField3.getText().isEmpty() || jTextField4.getText().isEmpty() || 
+                    jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() || 
+                    jTextField7.getText().isEmpty() || jTextField8.getText().isEmpty() || 
+                    jTextField9.getText().isEmpty() || jTextField10.getText().isEmpty() ||
+                    jTextField11.getText().isEmpty() ){
+                JOptionPane.showMessageDialog(this,"No se admiten cuadros vacios");
+            }else{
+                String lunes = "UPDATE menusfila SET dia = '" + jTextField1.getText() + "', postre = '" +
                     jTextField2.getText() + "' WHERE semana = '" +jTextField11.getText() + "' and dia = 'LUNES'";
             String martes = "UPDATE menusfila SET dia = '" + jTextField3.getText() + "', postre = '" +
                     jTextField4.getText() + "' WHERE semana = '" +jTextField11.getText() + "' and dia = 'MARTES'";
@@ -314,6 +329,10 @@ public class Modificacion extends javax.swing.JPanel {
             stat.executeUpdate(viernes);
             
             JOptionPane.showMessageDialog(null, "El registro fue exitoso"); //mensaje en un panel
+                
+            }
+            
+            
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo", "Error", JOptionPane.ERROR_MESSAGE);
         
