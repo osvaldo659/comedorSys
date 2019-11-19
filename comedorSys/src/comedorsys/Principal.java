@@ -55,7 +55,7 @@ public class Principal extends javax.swing.JFrame {
         */
         
         menu = new menuABM();
-        menu.setBounds(360,0,1300,450);
+        menu.setBounds(360,0,1300,460);
         add(menu);
         menu.setVisible(false);   
     }

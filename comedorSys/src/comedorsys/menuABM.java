@@ -21,10 +21,10 @@ public class menuABM extends javax.swing.JPanel {
      */
     public menuABM() {
         initComponents();
-        setSize(700,480);
+        setSize(1000,600);
         
         panelmenus = new PanelMenu();
-        panelmenus.setBounds(100,0,1125,550);
+        panelmenus.setBounds(0,0,1125,800);
         add(panelmenus);
         panelmenus.setVisible(false);
         
@@ -57,6 +57,8 @@ public class menuABM extends javax.swing.JPanel {
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(239, 235, 206));
 
         btnCargar.setText("CARGAR");
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,12 +106,13 @@ public class menuABM extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 22, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCargar)
                     .addComponent(btnModificar)
                     .addComponent(btnEliminar)
-                    .addComponent(btnListar)))
+                    .addComponent(btnListar))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
