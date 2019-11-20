@@ -26,10 +26,10 @@ public class Modificacion extends javax.swing.JPanel {
      */
     
         //JTextField textos[];
-    String ip="localhost"; //colocar la direccion de la base de dato
+    String ip="192.168.2.108"; //colocar la direccion de la base de dato
         String bd="bdcomedor"; //nombre de la basee de datos
         String login="root"; //usuario de la base de datos
-        String password=""; //contraseña de la base de datos
+        String password="comedor"; //contraseña de la base de datos
         String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
         String consulf;
     
@@ -73,8 +73,10 @@ public class Modificacion extends javax.swing.JPanel {
         btnBuscar = new javax.swing.JButton();
         BotonModi = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(239, 235, 206));
+
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 21)); // NOI18N
-        jLabel1.setText("Modificacion");
+        jLabel1.setText("Modificar Menu");
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 21)); // NOI18N
         jLabel2.setText("Lunes");
@@ -123,41 +125,40 @@ public class Modificacion extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
-                        .addGap(138, 138, 138)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel6))
-                                .addGap(89, 89, 89)
+                                .addGap(37, 37, 37)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                                .addGap(138, 138, 138)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField3)
+                                    .addComponent(jTextField5)
+                                    .addComponent(jTextField7)
+                                    .addComponent(jTextField1)
+                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel6))
+                                        .addGap(89, 89, 89)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBuscar)
-                                .addGap(46, 46, 46)
-                                .addComponent(BotonModi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnBuscar)
+                        .addGap(46, 46, 46)
+                        .addComponent(BotonModi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField10)
@@ -165,7 +166,7 @@ public class Modificacion extends javax.swing.JPanel {
                             .addComponent(jTextField6)
                             .addComponent(jTextField4)
                             .addComponent(jTextField2))))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,30 +233,36 @@ public class Modificacion extends javax.swing.JPanel {
             if (jTextField11.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this,"No se ha seleccionado nada para modificar");
             }else{
-                consulf = "SELECT * FROM menusfila WHERE dia = 'LUNES' and semana = '" + jTextField11.getText() + "'" ;
+            
+            consulf = "SELECT * FROM menusfila WHERE dia = 'LUNES' and semana = '" + jTextField11.getText() + "'" ;
             ResultSet rs = stat.executeQuery(consulf);
             rs.next();
+            
             jTextField1.setText(rs.getString("plato"));
             jTextField2.setText(rs.getString("postre"));
             rs.close();
+            
             consulf = "SELECT * FROM menusfila WHERE dia = 'MARTES' and semana = '" + jTextField11.getText() + "'" ;
             rs = stat.executeQuery(consulf);
             rs.next();
             jTextField3.setText(rs.getString("plato"));
             jTextField4.setText(rs.getString("postre"));
             rs.close();
+            
             consulf = "SELECT * FROM menusfila WHERE dia = 'MIERCOLES' and semana = '" + jTextField11.getText() + "'" ;
             rs = stat.executeQuery(consulf);
             rs.next();
             jTextField5.setText(rs.getString("plato"));
             jTextField6.setText(rs.getString("postre"));
             rs.close();
+            
             consulf = "SELECT * FROM menusfila WHERE dia = 'JUEVES' and semana = '" + jTextField11.getText() + "'" ;
             rs = stat.executeQuery(consulf);
             rs.next();
             jTextField7.setText(rs.getString("plato"));
             jTextField8.setText(rs.getString("postre"));
             rs.close();
+            
             consulf = "SELECT * FROM menusfila WHERE dia = 'VIERNES' and semana = '" + jTextField11.getText() + "'" ;
             rs = stat.executeQuery(consulf);
             rs.next();
@@ -267,27 +274,7 @@ public class Modificacion extends javax.swing.JPanel {
             
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Fallo", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-           
-           //w.next();
-           //JTextField textos[] = new JTextField[10];
-           
-           /*
-           int i = 0;
-           
-           
-           while (w.next()) //Corre cada registro de la consulta hasta fin (false)
-            {
-                textos[i].setText(w.getString("plato"));
-                i++;
-                textos[i].setText(w.getString("postre"));
-                i++;
-                //histogramaCanal.add(Integer.parseInt(rs.getString("contador")));
-                //nombres.add(rs.getString("platos"));
-            }
-            w.close();
-           */
-           
+        }         
             
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -311,15 +298,15 @@ public class Modificacion extends javax.swing.JPanel {
                     jTextField11.getText().isEmpty() ){
                 JOptionPane.showMessageDialog(this,"No se admiten cuadros vacios");
             }else{
-                String lunes = "UPDATE menusfila SET dia = '" + jTextField1.getText() + "', postre = '" +
+                String lunes = "UPDATE menusfila SET plato = '" + jTextField1.getText() + "', postre = '" +
                     jTextField2.getText() + "' WHERE semana = '" +jTextField11.getText() + "' and dia = 'LUNES'";
-            String martes = "UPDATE menusfila SET dia = '" + jTextField3.getText() + "', postre = '" +
+            String martes = "UPDATE menusfila SET plato = '" + jTextField3.getText() + "', postre = '" +
                     jTextField4.getText() + "' WHERE semana = '" +jTextField11.getText() + "' and dia = 'MARTES'";
-            String miercoles = "UPDATE menusfila SET dia = '" + jTextField5.getText() + "', postre = '" +
+            String miercoles = "UPDATE menusfila SET plato = '" + jTextField5.getText() + "', postre = '" +
                     jTextField6.getText() + "' WHERE semana = '" +jTextField11.getText() + "' and dia = 'MIERCOLES'";
-            String jueves = "UPDATE menusfila SET dia = '" + jTextField7.getText() + "', postre = '" +
+            String jueves = "UPDATE menusfila SET plato = '" + jTextField7.getText() + "', postre = '" +
                     jTextField8.getText() + "' WHERE semana = '" +jTextField11.getText() + "' and dia = 'JUEVES'";
-            String viernes = "UPDATE menusfila SET dia = '" + jTextField9.getText() + "', postre = '" +
+            String viernes = "UPDATE menusfila SET plato = '" + jTextField9.getText() + "', postre = '" +
                     jTextField10.getText() + "' WHERE semana = '" +jTextField11.getText() + "' and dia = 'VIERNES'";
             
             stat.executeUpdate(lunes);

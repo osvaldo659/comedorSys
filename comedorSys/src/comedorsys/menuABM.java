@@ -29,17 +29,17 @@ public class menuABM extends javax.swing.JPanel {
         panelmenus.setVisible(false);
         
         baja = new Baja();
-        baja.setBounds(100,0,1300,550);
+        baja.setBounds(0,0,1300,550);
         add(baja);
         baja.setVisible(false);
         
         modi = new Modificacion();
-        modi.setBounds(100,0,1300,550);
+        modi.setBounds(0,0,1300,550);
         add(modi);
         modi.setVisible(false);
         
         listar = new PListar();
-        listar.setBounds(100,0,1300,550);
+        listar.setBounds(0,0,1300,550);
         add(listar);
         listar.setVisible(false);       
     }
@@ -54,34 +54,26 @@ public class menuABM extends javax.swing.JPanel {
     private void initComponents() {
 
         btnCargar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(239, 235, 206));
 
-        btnCargar.setText("CARGAR");
+        btnCargar.setText("CARGAR MENU");
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setText("ELIMINAR");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnModificar.setText("MODIFICAR");
+        btnModificar.setText("MODIFICAR MENU");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
             }
         });
 
-        btnListar.setText("LISTAR");
+        btnListar.setText("LISTAR MENUS");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarActionPerformed(evt);
@@ -94,14 +86,12 @@ public class menuABM extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCargar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addComponent(btnListar)
+                .addContainerGap(416, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +100,6 @@ public class menuABM extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCargar)
                     .addComponent(btnModificar)
-                    .addComponent(btnEliminar)
                     .addComponent(btnListar))
                 .addContainerGap())
         );
@@ -128,19 +117,6 @@ public class menuABM extends javax.swing.JPanel {
         revalidate();
         repaint();
     }//GEN-LAST:event_btnCargarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        //setSize(1125,480);
-        
-        panelmenus.setVisible(false);
-        baja.setVisible(true);
-        modi.setVisible(false);
-        listar.setVisible(false);
-        //setVisible(false);
-        revalidate();
-        repaint();
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
@@ -172,7 +148,6 @@ public class menuABM extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnModificar;
     // End of variables declaration//GEN-END:variables

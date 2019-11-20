@@ -96,10 +96,10 @@ public class Baja extends javax.swing.JPanel {
         jLabel2.getAccessibleContext().setAccessibleName("SEMANA");
     }// </editor-fold>//GEN-END:initComponents
      String fechaHora = "";
-     String ip="localhost"; //colocar la direccion de la base de dato
-     String bd="bdcomedor"; //nombre de la basee de datos
-     String login="root"; //usuario de la base de datos
-     String password=""; //contraseña de la base de datos
+    String ip="192.168.2.108"; //colocar la direccion de la base de dato
+        String bd="bdcomedor"; //nombre de la basee de datos
+        String login="root"; //usuario de la base de datos
+        String password="comedor"; //contraseña de la base de datos
      String url= "jdbc:mysql://"+ip+"/"+bd+"?useTimezone=true&serverTimezone=UTC";
      String borrado;   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
