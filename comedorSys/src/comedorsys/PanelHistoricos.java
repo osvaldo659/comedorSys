@@ -66,6 +66,9 @@ public class PanelHistoricos extends javax.swing.JPanel {
             .addGap(0, 168, Short.MAX_VALUE)
         );
 
+        button1.setBackground(new java.awt.Color(28, 62, 74));
+        button1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button1.setForeground(new java.awt.Color(254, 254, 254));
         button1.setLabel("Actualizar");
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +94,7 @@ public class PanelHistoricos extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,7 +116,7 @@ public class PanelHistoricos extends javax.swing.JPanel {
         return jPanel1;
     }
     public void grafica(){
-        String ip="192.168.2.108"; //colocar la direccion de la base de dato
+        String ip="localhost"; //colocar la direccion de la base de dato
         String bd="bdcomedor"; //nombre de la basee de datos
         String login="root"; //usuario de la base de datos
         String password="comedor"; //contraseña de la base de datos

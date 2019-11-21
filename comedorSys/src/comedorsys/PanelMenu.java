@@ -228,7 +228,7 @@ public class PanelMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
         //String fechaHora = "";
-        String ip="192.168.2.108"; //colocar la direccion de la base de dato
+        String ip="localhost"; //colocar la direccion de la base de dato
         String bd="bdcomedor"; //nombre de la basee de datos
         String login="root"; //usuario de la base de datos
         String password="comedor"; //contraseña de la base de datos
